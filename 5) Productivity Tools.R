@@ -54,12 +54,15 @@ murders %>%
 
 # open a new terminal
 # git config --global user.name "your name"
-# git config --global user.mail "your@mail.com"
+# git config --global user.email "your@mail.com"
 
 # start nw project -> version control
 
 # not updated automatically.  Will upload when you are ready
 
-# click on check box on Git tab to upload
+# click on check box on Git tab to upload -> commit -> write text -> push
 
 # git-scm.com/docs/gitignore
+
+
+## 6) Unix
