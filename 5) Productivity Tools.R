@@ -66,3 +66,31 @@ murders %>%
 
 
 ## 6) Unix
+
+# The terminal is our window to the Linux world
+# Using it to organize files in our system without using mouse
+
+# On windows : Gitbash
+
+# on GitBash
+# echo "Hello World" will type back hello world.
+
+
+## 7) The Filesystem
+
+# Think of it as nested folders containing files, folders and executables
+
+# folders-subfolders  in UNIX:  directories-subdirectories
+# Working directory - current location
+
+# pwd - prints full path of the working directory
+
+# ~ shortname of home directory
+
+# mkdir projects  - creates directory project
+# cd projects - moves into that directory    cd - change directory
+
+
+
+
+
