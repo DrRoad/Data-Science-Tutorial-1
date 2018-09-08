@@ -308,6 +308,36 @@ ggsave("murders/figs/barplot.png")
 
 ## 17) Creating a GitHub Repository
 
+# Initializing our own repository rather than cloning
+
+
+# Create a project on your ow computer, independent of Git
+# We do not have a Git local repo, or Git upstream repo
+
+# Create a new repo on our GitHub page, this is the upstream Repo
+# we will call it murders
+
+# copy repo URL
+
+# Go on Git-bash and go into the murders folder
+
+# We need to make it a local Git directory
+
+# git init - initializes
+
+# Next we connect files to local repo, and connect the local repo to Git Hub repo
+
+# create a text file
+
+# git add README.txt - add a file 
+
+# git commit -m "First commit"
+
+
+# git remote add origin https://github.com/dwierschen/murders.git - to connect to upstream repo
+
+# git push will push the files in the local repository to upstream
+
 
 
 
