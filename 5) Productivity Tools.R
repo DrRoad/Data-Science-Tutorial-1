@@ -402,9 +402,68 @@ ggsave("murders/figs/barplot.png")
 
 ## 21) Environment Variables and Shells
 
+# Unix has settings that affect your command line environment
+# These are called environent variables
+
+# Distinguished by $
+
+# Home directory is stored in $HOME
+# echo $HOME shows home directory
+
+# env shows all environmental variables
+
+# Most of these commands were Run on the Unix Shell
+# echo $SHELL shows current shell
+
+# export val value
 
 
-## 20) 
+## 22) Executables, Permissions, and File Types
+
+# In Unix all programms are files
+# Programms that run are called executables
+
+# ls, mv, git, they are all executable files
+# which git will show the directory in which these files reside
+
+# ls /usr/git    will show executables
+
+# echo $PATH  where UNIX looks for command executables
+
+# You can create your own commands     ./my-ls to define it
+
+# ls -l  . regular file: -    directory: d    executable: x
+
+# To create something that works like a keyboard shortcut
+# alias seetop=' ls -lt | head'   seetop would show top 10 in chronological order and with detail
+
+# Careful when editing your .files, that can screw things up
+
+
+## 23) Commands you should learn
+
+# start filename  -  will try to open a file with the right application   open for Mac
+
+# nano   - bare bones editor
+
+# ln  - creates symbolic links
+
+# tar lets you create of extract archives
+
+# Ssh  - lets you conncect to other computers
+
+# grep  - powerful command that lets you search for patterns in a file
+
+# awk & sed  - two commands that permit you to find specific strings and files and change them
+
+
+# You can perform file management within R
+
+# use ?files
+
+
+
+
 
 
 
