@@ -339,6 +339,74 @@ ggsave("murders/figs/barplot.png")
 # git push will push the files in the local repository to upstream
 
 
+## 18) Advanced Unix Arguments
+
+# Arguments - most Unix commands can be run with arguments
+
+# - or -- followed by a letter or a word
+
+# rm -r directory-name  removes files and directories recursively from the directory called
+# Equivalent to throwing folder in the trash but it can not be recovered
+
+# Sometimes files or directories are protected
+
+# we use the -f argument to force removal
+
+# rm -rf directory-name
+
+# ls -a   -  show all files in a directory, including hidden
+
+# In Unix all files starting with a . are hidden
+
+# ls -l - show more information about file
+
+# ls -t  - to show in chronological order, most recently modified on top
+
+# ls -r  - reverser order 
+
+# ls -lart  - combines all these
+
+
+## 19) Getting help and pipes
+
+# man command-name  - to get help on a command  (does not work on Git Bash)
+
+# For Git Bash:    command --help
+
+# Pipe  |
+
+# ls --help | less   - shows less or more compact
+
+# less command works with other things too
+
+# ls -- help | head -6      - shows only the first 6 lines
+
+
+## 20) Wildcard
+
+# Imagine you want to remove all files ending in .HTML
+# It would be painful to do 1 by 1
+
+# uses *
+# ls *.html     lists all files ending in html
+# rm *.html     removes all HTML files
+
+# ? means any character
+
+# If we know all files are of the form file-001.html
+# We can type rm file-???.html   to remove all files of the form file-???.html
+
+# We can combine wildcards
+# rm file-???.*
+
+
+## 21) Environment Variables and Shells
+
+
+
+## 20) 
+
+
 
 
 
