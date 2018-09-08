@@ -91,7 +91,44 @@ murders %>%
 # cd projects - moves into that directory    cd - change directory
 
 
-## 8) Unic Commands
+## 8) Unix Commands
+
+# Unix autocompletes by hitting tab
+# pwd - prints full path of the working directory
+# ls - list directory content
+# mkdir projects  - makes directory called projects,  mkdir projects  teaching - creates both
+# rmdir projects - removes directory called projects only if it is empty
+# cd projects - moves into that directory    cd - change directory
+
+# cd / or ~ is a full path
+# cd projects is a relative path - it will look for the directory in the current working directory
+
+# cd .. - go back to parent directory
+# cd ~ - will bring us back to the home directory from anywhere
+
+# cd ~/projects - equivalent to typing the full path out
+# cd ../.. to move to the parent directory of the parent directory
+# cd -  - moves you back to the directory you just left
+# cd - will return you to home directory
+
+
+## 9) Moving and removing files
+
+# mv move command will not ask to overwrite files, it will simply do it
+# mv path_to_the_file path_to_the_destination_directory
+# mv also renames i.e.  mv cv.tex resume.tex     renames cv to resume
+# mv and renaming:  mv cv.tex ../reports/resume.tex
+
+# We can also move entire directories
+
+# mv ~/docs/resumes ~/docs/reports/    (last slash is important so that it doesn't think you want to rename)
+
+
+# cp copy commann, copies file instead of moving
+# we can not copy entire directories without learning about arguments
+
+
+
 
 
 
