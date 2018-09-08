@@ -249,6 +249,61 @@ ggsave("murders/figs/barplot.png")
 
 ## 16) Using Git and the Command Line
 
+# We are going to clone the upstream repository github.com/rairizarry/murders
+
+# Go to link, click clone, and copy repo URL
+
+# Cloning: instead of downloading files to computer we are going to copy the entire 
+# git structure i.e. we will add the files and directories to each of the 3 stages
+# Working Directory, Staging Area, Local Repository
+
+# In Git-Bash
+
+# mkdir git-example
+# cd git-example
+# git-clone https://github.com/rairizarry/murders.git
+
+# ~/Desktop/Data Science/Data-Science-Tutorial/murders/git-example  on my laptop
+
+# When you change files using R-Studio you only edit in the working directory
+
+# git status - can tell you how files relate to version
+
+# We want to sync with upstream repo once we are sure they are final enough to share
+
+# We only want edits that we think are important, not every small one
+
+# Edits in the staging area are not kept by the version control system
+
+# git add - adds file to staging area
+
+# create new file
+# echo "test" >> new-file.txt        creates a file with the word test in it
+# echo "temporary" >> tmp.txt
+# git add new-file.txt           which will state the file
+# any stages we add to new-file.txt will get added to the repository next time we commit
+# git commit -m "adding a new file" -  commits the file with that message
+# We have now changed the local repository
+
+# to show changes
+
+# echo "adding a line" >> new-file.txt
+# git add new-file.txt 
+# git commit -m "adding a new file" 
+
+# we don't have to do git add, we can go to git commit
+
+# git log - shows all files
+
+# git push - pushes all the files to the repository
+# won't work with this example since it is rafael's repository and we don't have permission
+
+# git fetch - to make our local repository like the upstream repository (in case of a collaborator)
+
+# git merge - to make this copies to the staging and working directory
+
+# git pull - to make it all in one shot, fetch and merge
+
 
 
 
