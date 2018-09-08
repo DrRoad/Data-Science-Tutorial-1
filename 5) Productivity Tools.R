@@ -232,7 +232,9 @@ ggsave("murders/figs/barplot.png")
 # output: github_document  that renders on GitHub, with suffix .md
 
 
-## 15) 
+## 15) Git and GitHub
+
+
 
 
 
