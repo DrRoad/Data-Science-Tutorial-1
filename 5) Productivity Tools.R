@@ -293,6 +293,7 @@ ggsave("murders/figs/barplot.png")
 
 # we don't have to do git add, we can go to git commit
 
+
 # git log - shows all files
 
 # git push - pushes all the files to the repository
@@ -305,7 +306,7 @@ ggsave("murders/figs/barplot.png")
 # git pull - to make it all in one shot, fetch and merge
 
 
-
+## 17) Creating a GitHub Repository
 
 
 
