@@ -234,6 +234,21 @@ ggsave("murders/figs/barplot.png")
 
 ## 15) Git and GitHub
 
+# Git and Git-Hub is great for version control
+# It tracks changes and you can revert back to an old version
+# Git lets you create branches in which we can test out ideas then decide if we can merge
+# the new branch with the original
+# Also colaboration
+# To share
+
+# Files move around 4 different areas:
+# Working Directory, Staging Area, Local Repository, Upstream Repository
+
+# We can clone an existing Repo, or initialize a new one
+
+
+## 16) Using Git and the Command Line
+
 
 
 
