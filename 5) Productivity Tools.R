@@ -128,6 +128,70 @@ murders %>%
 # we can not copy entire directories without learning about arguments
 
 
+# rm - deletes (it is permanent, no warning or questions)
+# to remove directories we need to learn about arguments
+
+
+## 10) less: looking at a file
+
+# To look at a text file, move to the directory it is using cd
+# less cv.tex  -  which opens the less viewer
+# to exit less viewer type q
+
+
+## 11) Preparing for Data Science Project
+
+# mkdir projects
+# cs projects
+# mkdir murders
+# cd murders 
+# mkdir data rda     - rda a folder for r data
+
+# if you reopen Git-Bash cd projects/murder
+
+# in R under New Projects you can use existing directory and type full path
+
+getwd()  # shows working directory in R
+
+# In R always use relative paths, if you use full paths it might not work on other systems
+
+# Code will not be used in above directory for simplicity
+
+url <- "https://raw.githubusercontent.com/rafalab/dslabs/master/inst/extdata/murders.csv"
+
+dest_file <- "murders/data/murders.csv"    # we used a relative path
+
+download.file(url, destfile=dest_file)
+
+
+library(tidyverse)
+
+murders <- read_csv("murders/data/murders.csv")
+
+murders <- murders %>% mutate(region=factor(region), rate= total/population*10^5)
+
+save(murders, file = "murders/rda/murders.rda")   # saves into R data file
+
+load("murders/rda/murders.rda")
+
+murders %>% mutate(abb=reorder(abb,rate)) %>%
+  ggplot(aes(abb, rate)) +
+  geom_bar(width = 0.5, stat="identity", color="black") + coord_flip()
+
+# to be organized we create new directory called figs   mkdir figs from the parent dir murders
+
+ggsave("murders/figs/barplot.png")
+
+# As a data scientist it is important to create a README.txt text file describing what each file does  
+
+
+## 12) Reproducible Reports with R Markdown
+
+
+
+
+
+
 
 
 
