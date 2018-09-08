@@ -187,6 +187,54 @@ ggsave("murders/figs/barplot.png")
 
 ## 12) Reproducible Reports with R Markdown
 
+# The final product on an analysis project is the report
+
+# Using R Markdown and knitr, code and text can be combined in the same document
+# Figues and tables are automatically added
+
+# Great for if you make a mistake, get other data etc.
+
+
+## 13) R Markdown
+
+# It is a format for literate programming documents
+
+# more info on www.markdowntutorial.com   https://rmarkdown.rstudio.com/
+
+# knitr compiles R Markdown codes
+
+# R Markdown document looks different than final project
+
+# File -> New File -> R Markdown -> Title and author, then choose HTML for debugging
+# Type can be changed later
+
+# Rmd suffix for these files
+
+# Changing output on top to pdf_document we can make to pdf
+
+# CTRL+ALT+I will automatically create empty code chunk
+
+# Whatever code you do in the position of the R chunk, that is where it will appear in final
+
+# writing code, and then using argument echo=false will not show code in presentation
+
+# To add labels ```{r pressure-summary, echo=FALSE}
+
+
+## 14) knitr
+
+# Website: https://yihui.name/knitr/
+
+# Used to convert R Markdown to document
+
+# R Studo provides button in R Markdown knit
+
+# output: github_document  that renders on GitHub, with suffix .md
+
+
+## 15) 
+
+
 
 
 
