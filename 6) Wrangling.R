@@ -91,10 +91,39 @@ file.remove()   # removes a file
 
 ## 6) Tidy Data
 
+library(dslabs)
+data("gapminder")
+
+tidy_data <- gapminder %>%
+  filter(country %in% c("South Korea","Germany")) %>%
+  select(country, year, fertility)
+head(tidy_data)
+
+tidy_data %>% ggplot(aes(year, fertility, color=country)) + geom_point()
+
+# Code works seemlessly because the data is tidy
+
+# Each row represents one observation
+# Each column represents the different variables that we have data on for those observations
+
+# Original file, wide data
+
+path <- system.file("extdata", package="dslabs")
+filename <- file.path(path, "fertility-two-countries-example.csv")
+wide_data <- read_csv(filename)
+
+select(wide_data, country, '1960' : '1967')
+
+# Wide format
+
+# Each row contains several observations
+
+# We need to wrangle the wide data into tidy format
+
+# One of the variables is stored in the header
 
 
-
-
+## 7) 
 
 
 
