@@ -125,7 +125,122 @@ select(wide_data, country, '1960' : '1967')
 
 ## 7) Reshaping Data
 
+library(tidyverse)
+
+path <- system.file("extdata", package="dslabs")
+filename <- file.path(path, "fertility-two-countries-example.csv")
+wide_data <- read_csv(filename)
+
+select(wide_data, country, '1960' : '1967')
+
+gather()   # converts y data into tidy data, assumes column names are characters
+
+# third argument specifies columns that will be gathered, default is all
+# first argument sets the name of the column that will hold the variables
+# that is currently kept in the wide data column name
+# the second argument sets the column name for the column that will hold 
+# the values in the column cells
+
+new_tidy_data <- wide_data %>% 
+  gather (year, fertility, '1960':'2015')
+
+head(new_tidy_data)
+
+# only columns not gathered is the countries one, so we can do that faster
+
+new_tidy_data_fast <- wide_data %>% 
+  gather (year, fertility, -country)
+
+head(new_tidy_data_fast)
+
+class(new_tidy_data$year)   # it becomes character from integer
+
+
+new_tidy_data_fast <- wide_data %>% 
+  gather (year, fertility, -country, convert=TRUE)  # converts to integer
+
+class(new_tidy_data_fast$year)
+
+new_tidy_data_fast %>% ggplot(aes(year, fertility, color=country)) + geom_point()
+
+# sometimes it is useful to convert tidy into wide
+
+spread()  # inverse of gather()
+
+# first argument: which variable will be used as the column names
+# second argument: which variable to use to fill out the cells
+
+new_wide_data <- new_tidy_data_fast %>% spread(year, fertility)
+select(new_wide_data, country, '1960':'1967')
+
+
+tidy_ex <- read_csv("experiment/Spread.csv")
+
+dat_tidy <- tidy_ex %>% spread(key=var, value=people)
+dat_tidy
+
+
+## 8) Separate and Unite
+
+library(tidyverse)
+
+path <- system.file("extdata", package="dslabs")
+filename <- file.path(path, "life-expectancy-and-fertility-two-countries-example.csv")
+
+raw_dat <- read.csv(filename)
+
+select(raw_dat, 1:5)
+
+dat <- raw_dat %>% gather(key, value, -country)  # no column name for key since it contains var type
+
+head(dat)   # each observation is associated with two not one row
+
+# We want the values in fertility and life expectancy as two separate columns
+
+separate()
+
+# argument 1: name of column to be separated
+# argument 2: names to be used for the two columns
+# argument 3: character that separates the variables
+
+dat %>% separate(key, c("year", "variable_name"),"_")
+
+# problem, since _ is used to separate life and expectancy
+
+dat %>% separate(key, c("year", "first_variable_name","second_variable_name"),
+                 fill="right")
+# we need to merge the two columns
+
+dat %>% separate(key, c("year", "variable_name"), sep="_", extra="merge")
+
+dat %>% separate(key, c("year", "variable_name"), sep="_", extra="merge") %>%
+  spread(variable_name, value)
+
+
+separate_ex <- read_csv("experiment/separate.csv")
+
+tidy_data <- separate_ex %>%
+  gather(key = 'key', value = 'value', -age_group) %>%
+  separate(col = key, into = c('year', 'variable_name'), sep = '_') %>% 
+  spread(key = variable_name, value = value)
+
+
+separate_unite_ex <- read_csv("experiment/separate_unite.csv")
+
+tidy_data <- separate_unite_ex %>%
+  separate(col = key, into = c("player", "variable_name"), sep = "_", extra = "merge") %>% 
+  spread(key = variable_name, value = value)
+
+tidy_data <- separate_unite_ex %>%
+  separate(col = key, into = c("player", "variable_name1", "variable_name2"), 
+           sep = "_", fill = "right") %>% 
+  unite(col = variable_name, variable_name1, variable_name2, sep = "_") %>% 
+  spread(key = variable_name, value = value)
+
+
+## 9) Combining Tables
 
 
 
+                 
 
