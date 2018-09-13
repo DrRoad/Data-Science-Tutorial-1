@@ -123,7 +123,9 @@ select(wide_data, country, '1960' : '1967')
 # One of the variables is stored in the header
 
 
-## 7) 
+## 7) Reshaping Data
+
+
 
 
 
