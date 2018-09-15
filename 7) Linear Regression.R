@@ -53,3 +53,35 @@
 
 ## 2) Bases on Balls or Stolen Bases
 
+# Do teams that hit more home runs score more runs
+
+# Visualization for exploring relationship between two variables: Scatterplot
+
+library(Lahman)
+library(tidyverse)
+library(dslabs)
+
+ds_theme_set()
+
+Teams %>% filter(yearID %in% 1961:2001) %>%
+  mutate(HR_per_game = HR/G, R_per_game= R/G) %>%
+  ggplot(aes(HR_per_game, R_per_game)) +
+  geom_point(alpha=0.5)                               # shows strong association
+
+
+Teams %>% filter(yearID %in% 1961:2001) %>%
+  mutate(SB_per_game = SB/G, R_per_game= R/G) %>%
+  ggplot(aes(SB_per_game, R_per_game)) +
+  geom_point(alpha=0.5)                               # relationship is not clear
+
+
+Teams %>% filter(yearID %in% 1961:2001) %>%
+  mutate(BB_per_game = BB/G, R_per_game= R/G) %>%
+  ggplot(aes(BB_per_game, R_per_game)) +
+  geom_point(alpha=0.5)                               # pretty strong relationship
+
+# It might appear base on balls is causing runs, when it is in fact home runs causing runs
+# This is called confounding 
+
+
+## 3) Correlation
