@@ -84,4 +84,60 @@ Teams %>% filter(yearID %in% 1961:2001) %>%
 # This is called confounding 
 
 
-## 3) Correlation
+## 3) Correlation and Correlation Coefficient
+
+install.packages("HistData")
+
+library(HistData)
+library(tidyverse)
+data("GaltonFamilies")
+
+galton_heights <- GaltonFamilies %>%
+  filter(childNum ==1 & gender=='male') %>%
+  select(father, childHeight) %>%
+  rename(son = childHeight)
+
+galton_heights %>%
+  summarize(mean(father), sd(father), mean(son), sd(son))
+
+galton_heights %>% ggplot(aes(father,son)) + geom_point(alpha=0.5)
+
+
+# p = (1/n)*sum(((x_i-mu_x)/sigma_x)*(y_i-mu_y)/sigma_y))  from 1 to n     p = rho
+
+# Unrelated variables have a correlation of about 0
+
+galton_heights %>% summarize(cor(father,son))
+
+
+## 4) Sample Correlation Coefficient is a Random Variable
+
+set.seed(0)
+
+R <- sample_n(galton_heights, 25, replace = TRUE) %>%      # a random variable
+  summarize(cor(father,son))
+
+B <- 1000
+N <- 25
+R <- replicate(B , {
+  sample_n(galton_heights, 25, replace = TRUE) %>%
+    summarize(r=cor(father,son))   %>% .$r
+})
+
+data.frame(R) %>% ggplot(aes(R)) + geom_histogram(binwidth = 0.05, color="black")
+
+mean(R)
+sd(R)     # pretty large standard error
+
+# For Large N the CLT applies and the distribution is approx. normal
+
+# R ~ N(p, sqrt((1-r^2)/(N-2)))
+
+
+## 5) Anscombe's Quartet/Stratification
+
+
+
+
+
+
