@@ -182,5 +182,30 @@ galton_heights %>% mutate(father=round(father)) %>%
 
 # for every sd sigma_x above mu_x, y grows rho*sigma_y above mu_y
 
+# ((y_i-mu_y)/sigma_y) = rho*((x_i-mu_x)/sigma_x)
+
+# regression line: slope = rho*sigma_y/sigma_x  intercept = mu_y-m*mu_x
+
+# using original data
+
+mu_x <- mean(galton_heights$father)
+mu_y <- mean(galton_heights$son)
+s_x <- sd(galton_heights$father)
+s_y <- sd(galton_heights$son)
+r <- cor(galton_heights$father,galton_heights$son)
+m <- r*s_y/s_x
+b <- mu_y-m*mu_x
+
+galton_heights %>% ggplot(aes(father,son)) +
+  geom_point(alpha=0.5) +
+  geom_abline(intercept = b, slope = m)
+
+# if we scale, intercept is 0
+
+
+## 6) Bivariate Normal Distribution
+
+
+
 
 
