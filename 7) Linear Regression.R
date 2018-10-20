@@ -136,8 +136,51 @@ sd(R)     # pretty large standard error
 
 ## 5) Anscombe's Quartet/Stratification
 
+# Correlation is only meaningful in a particular context
 
+# Creating strata of fathers with similar heights
 
+# Trying to predict height of son given father is 72 inches tall
+
+library(HistData)
+library(tidyverse)
+data("GaltonFamilies")
+
+galton_heights <- GaltonFamilies %>%
+  filter(childNum ==1 & gender=='male') %>%
+  select(father, childHeight) %>%
+  rename(son = childHeight)
+
+conditional_avg <- galton_heights %>% filter(round(father) == 72) %>% 
+  summarize(avg=mean(son)) %>% .$avg
+
+conditional_avg
+
+# Boxplots
+
+galton_heights %>% mutate(father_strata=factor(round(father))) %>%
+  ggplot(aes(father_strata,son)) +
+  geom_boxplot() + geom_point()
+
+# Plot means
+
+galton_heights %>% mutate(father=round(father)) %>%
+  group_by(father) %>%
+  summarize(son_conditional_avg = mean(son)) %>%
+  ggplot(aes(father,son_conditional_avg)) + geom_point()
+
+# plotting regression line
+
+r <- galton_heights %>% summarize(r=cor(father,son)) %>% .$r
+galton_heights %>% mutate(father=round(father)) %>%
+  group_by(father) %>%
+  summarize(son = mean(son)) %>%
+  mutate(z_father=scale(father),z_son=scale(son)) %>%
+  ggplot(aes(z_father,z_son)) +
+  geom_point() +
+  geom_abline(intercept=0, slope=r)
+
+# for every sd sigma_x above mu_x, y grows rho*sigma_y above mu_y
 
 
 
