@@ -205,6 +205,38 @@ galton_heights %>% ggplot(aes(father,son)) +
 
 ## 6) Bivariate Normal Distribution
 
+# Two r.v. approximated by Bivariate Normal Distribution, scatterplot looks like ovals
+# Distribution is defined for pairs
+
+# if X, Y normally distributed r.v., and for any group of X, X=x, Y is approx. normal
+# in that group, then the pair is approx. bivariate normal, i.e. conditional distribution
+# of Y given X
+
+# F_y|X=x is conditional distribution
+# E(Y!X=x) is conditional expected value
+
+library(HistData)
+library(tidyverse)
+data("GaltonFamilies")
+
+galton_heights <- GaltonFamilies %>%
+  filter(childNum ==1 & gender=='male') %>%
+  select(father, childHeight) %>%
+  rename(son = childHeight)
+
+galton_heights %>%
+  mutate(z_father = round((father-mean(father))/sd(father))) %>%
+  filter(z_father %in% -2:2) %>%
+  ggplot() + stat_qq(aes(sample=son)) + facet_wrap(~z_father)
+
+# If X,Y follow bivariate distribution
+
+# E(Y|X=x) = mu_Y + rho*((X - mu_X)/sigma_X)*sigma_Y    (this is the regression line)
+
+
+## 7) Variance Explained
+
+
 
 
 
